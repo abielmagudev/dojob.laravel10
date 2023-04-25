@@ -17,8 +17,10 @@
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="By name, address, phone...">
+          <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+        </div>
       </form>
     </div>
   </div>
