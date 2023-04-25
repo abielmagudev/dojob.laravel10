@@ -13,4 +13,9 @@ class Job extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    public function extensions()
+    {
+        return $this->belongsToMany(Extension::class);
+    }
 }

@@ -13,6 +13,6 @@ class ExtensionSeeder extends Seeder
      */
     public function run(): void
     {
-        Extension::factory(5)->create();
+        Extension::factory(3)->create();
     }
 }

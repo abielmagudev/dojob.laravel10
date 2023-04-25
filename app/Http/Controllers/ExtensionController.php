@@ -2,47 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ApiExtension;
 use App\Models\Extension;
 use Illuminate\Http\Request;
 
 class ExtensionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $api_categories = ApiExtension::categories();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $api_extensions = $api_categories->contains($request->category) 
+                        ? ApiExtension::byCategory($request->category)->get() 
+                        : ApiExtension::all();
+
+        return view('extensions.index', [
+            'api_categories' => $api_categories,
+            'api_extensions' => $api_extensions,
+            'api_category_selected' => $request->category,
+            'extensions' => Extension::all(),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Extension $extension)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Extension $extension)
     {
         //
     }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Extension extends Model
 {
     use HasFactory;
+
+    public function jobs()
+    {
+        return $this->belongsToMany(Job::class);
+    }
 }
