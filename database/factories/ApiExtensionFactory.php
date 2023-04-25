@@ -32,8 +32,8 @@ class ApiExtensionFactory extends Factory
             'description' => self::$item['description'],
             'slug' => Str::slug( self::$item['name'] ),
             'category' => self::$item['category'],
-            'price' => $this->faker->randomFloat(2, 0, 300),
-            'try_free' => $this->faker->boolean(),
+            'price' => $this->faker->boolean() ? $this->faker->randomFloat(2, 1, 200) : 0,
+            'free_try' => $this->faker->boolean(),
             'is_available' => $this->faker->boolean(),
         ];
     }

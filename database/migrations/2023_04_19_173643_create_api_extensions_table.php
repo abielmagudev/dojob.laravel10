@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('category');
             $table->decimal('price', 6)->nullable();
-            $table->boolean('try_free')->default(false);
+            $table->boolean('free_try')->default(false);
             $table->boolean('is_available')->default(true);
             $table->timestamps();
         });
