@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('plugins', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('api_plugin_id');
-            $table->boolean('is_available')->default(true);
+        Schema::create('extension_job', function (Blueprint $table) {
+            $table->foreignId('extension_id');
+            $table->foreignId('job_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('plugins');
+        Schema::dropIfExists('extension_job');
     }
 };

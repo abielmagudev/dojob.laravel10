@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Plugin;
+use App\Models\Extension;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PluginSeeder extends Seeder
+class ExtensionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Plugin::factory(5)->create();
+        Extension::factory(5)->create();
     }
 }

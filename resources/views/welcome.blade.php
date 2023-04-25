@@ -24,7 +24,7 @@
             <div class="p-3">
                 <a href="#" class="bg-sky-500 hover:bg-sky-700 py-2 px-5 leading-5 rounded-full font-semibold text-white">Tasks</a>
                 <a href="#" class="bg-sky-500 hover:bg-sky-700 py-2 px-5 leading-5 rounded-full font-semibold text-white">Jobs</a>
-                <a href="#" class="bg-sky-500 hover:bg-sky-700 py-2 px-5 leading-5 rounded-full font-semibold text-white">Plugins</a>
+                <a href="#" class="bg-sky-500 hover:bg-sky-700 py-2 px-5 leading-5 rounded-full font-semibold text-white">Extensions</a>
             </div>
             <br>
             <div>

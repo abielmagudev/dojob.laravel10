@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\ApiPlugin;
+use App\Models\ApiExtension;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ApiPlugin>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ApiExtension>
  */
-class ApiPluginFactory extends Factory
+class ApiExtensionFactory extends Factory
 {
     public static $stock;
 
@@ -23,7 +23,7 @@ class ApiPluginFactory extends Factory
     public function definition(): array
     {
         if( is_null(self::$stock) )
-            self::$stock = ApiPlugin::stock();
+            self::$stock = ApiExtension::stock();
 
         self::$item = is_null(self::$item) ? current(self::$stock) : next(self::$stock);
 

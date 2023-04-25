@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\ApiPlugin;
+use App\Models\ApiExtension;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Plugin>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Extension>
  */
-class PluginFactory extends Factory
+class ExtensionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class PluginFactory extends Factory
     public function definition(): array
     {
         return [
-            'api_plugin_id' => $this->faker->numberBetween(1, ApiPlugin::counter()),
+            'api_extension_id' => $this->faker->numberBetween(1, ApiExtension::counter()),
         ];
     }
 }

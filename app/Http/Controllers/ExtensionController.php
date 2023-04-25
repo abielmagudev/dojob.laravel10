@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Plugin;
+use App\Models\Extension;
 use Illuminate\Http\Request;
 
-class PluginController extends Controller
+class ExtensionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PluginController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plugin $plugin)
+    public function show(Extension $extension)
     {
         //
     }
@@ -42,7 +42,7 @@ class PluginController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Plugin $plugin)
+    public function edit(Extension $extension)
     {
         //
     }
@@ -50,7 +50,7 @@ class PluginController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Plugin $plugin)
+    public function update(Request $request, Extension $extension)
     {
         //
     }
@@ -58,7 +58,7 @@ class PluginController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plugin $plugin)
+    public function destroy(Extension $extension)
     {
         //
     }

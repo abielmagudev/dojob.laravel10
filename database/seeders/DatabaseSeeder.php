@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ApiPluginSeeder::class,
+            ApiExtensionSeeder::class,
+            ExtensionSeeder::class,
             JobSeeder::class,
-            PluginSeeder::class,
             TaskSeeder::class,
         ]);
 
