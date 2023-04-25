@@ -9,6 +9,18 @@ class ApiExtension extends Model
 {
     use HasFactory;
 
+    public function scopeCategories($query)
+    {
+        return $query->select('category')->groupBy('category')->orderBy('category')->pluck('category');
+    }
+
+    public function scopeByCategory($query, $category)
+    {
+        return $query->where('category', $category);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
+
     public static $stock = [
         [
             'name' => 'Air condition',
