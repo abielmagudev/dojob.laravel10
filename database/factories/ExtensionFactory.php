@@ -18,7 +18,7 @@ class ExtensionFactory extends Factory
     public function definition(): array
     {
         return [
-            'api_extension_id' => $this->faker->numberBetween(1, ApiExtension::counter()),
+            'api_extension_id' => $this->faker->unique()->numberBetween(1, ApiExtension::counter()),
         ];
     }
 }
