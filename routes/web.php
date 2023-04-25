@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('tasks', TaskController::class);
-Route::resource('jobs', JobController::class);
 Route::resource('extensions', ExtensionController::class);
+Route::resource('jobs', JobController::class);
+Route::resource('tasks', TaskController::class);
 
 Route::get('/', function () {
     return view('welcome');
