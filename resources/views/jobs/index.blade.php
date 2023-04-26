@@ -9,6 +9,7 @@
             <tr>
                 <th scope="col">Job</th>
                 <th scope="col">Description</th>
+                <th scope="col">Extensions</th>
                 <th scope="col">Tasks</th>
                 <th></th>
             </tr>
@@ -18,6 +19,7 @@
             <tr>
                 <td scope="row">{{ $job->name }}</td>
                 <td>{{ $job->description }}</td>
+                <td>{{ $job->extensions_count }}</td>
                 <td>{{ $job->tasks_count }}</td>
                 <td class="text-end">
                     <a href="{{ route('jobs.show', $job) }}" class="btn btn-outline-primary btn-sm">
