@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ExtensionSeeder::class,
             JobSeeder::class,
             TaskSeeder::class,
+            ExtensionJobSeeder::class,
         ]);
 
     }

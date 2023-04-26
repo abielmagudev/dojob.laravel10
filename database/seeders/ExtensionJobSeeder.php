@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Extension;
+use App\Models\Job;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +14,12 @@ class ExtensionJobSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        $extensions = Extension::all();
+
+        foreach(Job::all() as $job)
+        {
+            if( mt_rand(0,1) )
+                $job->extensions()->attach( $extensions->random( mt_rand(1,3) ) );
+        }
     }
 }
