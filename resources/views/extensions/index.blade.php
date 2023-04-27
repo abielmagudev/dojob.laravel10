@@ -35,11 +35,11 @@
                         @if( $extensions->contains('api_extension_id', '=', $api_extension->id) )
                         <span class="btn btn-outline-secondary btn-sm disabled w-100">Got it</span>
 
-                        @elseif( $api_extension->free_try )
-                        <button class="btn btn-outline-success btn-sm w-100">Free try</button>
-                        
                         @elseif( $api_extension->price <= 0 )
                         <button class="btn btn-outline-success btn-sm w-100">It's free!</button>
+                        
+                        @elseif( $api_extension->free_try )
+                        <button class="btn btn-outline-success btn-sm w-100">Free try</button>
 
                         @else
                         <button type="button" class="btn btn-outline-success btn-sm w-100">Purchase</button>
