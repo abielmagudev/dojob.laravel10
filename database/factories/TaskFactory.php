@@ -18,7 +18,8 @@ class TaskFactory extends Factory
     {
         return [
             'job_id' => $this->faker->numberBetween(1, 10),
-            'scheduled_at' => $this->faker->dateTimeBetween('- 1 year', 'now', 'America/Matamoros'),
+            'scheduled_date' => $this->faker->dateTimeBetween('- 1 year', 'now', 'America/Matamoros'),
+            'scheduled_time' => $this->faker->time(),
             'notes' => $this->faker->optional()->text(128),
         ];
     }

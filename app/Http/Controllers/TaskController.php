@@ -2,25 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return view('tasks.index', [
+            'tasks' => Task::with('job')->get(),
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('tasks.create', [
+            'jobs' => Job::orderBy('name')->get(),
+        ]);
     }
 
     /**
@@ -31,20 +30,14 @@ class TaskController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Task $task)
     {
-        //
+        return view('tasks.show')->with('task', $task);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Task $task)
     {
-        //
+        return view('tasks.edit')->with('task', $task);
     }
 
     /**

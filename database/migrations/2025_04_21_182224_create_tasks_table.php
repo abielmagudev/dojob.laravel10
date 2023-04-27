@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('job_id');
-            $table->dateTime('scheduled_at');
+            $table->date('scheduled_date');
+            $table->time('scheduled_time');
             $table->text('notes')->nullable();
             $table->timestamps();
         });
