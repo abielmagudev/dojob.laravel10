@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('api_extensions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
+            $table->string('model');
             $table->string('slug');
+            $table->text('description');
             $table->string('category');
             $table->decimal('price', 6)->nullable();
             $table->boolean('free_try')->default(false);

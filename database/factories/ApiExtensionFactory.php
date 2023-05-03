@@ -29,8 +29,9 @@ class ApiExtensionFactory extends Factory
 
         return [
             'name' => self::$item['name'],
-            'description' => self::$item['description'],
+            'model' => Str::studly( self::$item['name'] ),
             'slug' => Str::slug( self::$item['name'] ),
+            'description' => self::$item['description'],
             'category' => self::$item['category'],
             'price' => $this->faker->boolean() ? $this->faker->randomFloat(2, 1, 200) : 0,
             'free_try' => $this->faker->boolean(),
