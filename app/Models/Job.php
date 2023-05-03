@@ -9,6 +9,15 @@ class Job extends Model
 {
     use HasFactory;
 
+    // Validators
+
+    public function hasExtensions()
+    {
+        return (bool) $this->extensions->count();
+    }
+
+    // Relationships
+
     public function tasks()
     {
         return $this->hasMany(Task::class);
