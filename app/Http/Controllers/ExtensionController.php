@@ -22,7 +22,7 @@ class ExtensionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->dd();
     }
 
     /**

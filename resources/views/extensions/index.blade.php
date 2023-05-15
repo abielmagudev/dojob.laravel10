@@ -30,7 +30,7 @@
                     @endforeach
                     </td>
                     <td class='text-end'>
-                        <button class="btn btn-outline-primary">Install</button>
+                        <button class="btn btn-outline-primary" type="submit" form="formInstallExtension" name="extension" value="{{ $api_extension->id }}">Install</button>
                     </td>
 
                     <?php /*
@@ -57,5 +57,7 @@
             </tbody>
     </table>
 </div>
-
+<form action="{{ route('extensions.store') }}" method="post" id='formInstallExtension'>
+    @csrf
+</form>
 @endsection
