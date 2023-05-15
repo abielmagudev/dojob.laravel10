@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ApiExtension;
+use App\Api\Server\ApiExtension;
 use App\Models\Extension;
 use Illuminate\Http\Request;
 
@@ -10,17 +10,10 @@ class ExtensionController extends Controller
 {
     public function index(Request $request)
     {
-        $api_categories = ApiExtension::categories();
-
-        $api_extensions = $api_categories->contains($request->category) 
-                        ? ApiExtension::byCategory($request->category)->get() 
-                        : ApiExtension::all();
-
         return view('extensions.index', [
-            'api_categories' => $api_categories,
-            'api_extensions' => $api_extensions,
-            'api_category_selected' => $request->category,
+            'api_extensions' => ApiExtension::all(),
             'extensions' => Extension::all(),
+            'tags' => $request->get('tags', ''),
         ]);
     }
 
