@@ -34,7 +34,8 @@ class ApiExtension extends Model
     public static function stock()
     {
         return [
-            \App\Api\Extensions\AirCondition\AirCondition::class,
+            \App\Api\Extensions\AirConditionTechnician\AirConditionTechnician::class,
+            \App\Api\Extensions\AtticInsulation\AtticInsulation::class,
             
             // more...
         ];
