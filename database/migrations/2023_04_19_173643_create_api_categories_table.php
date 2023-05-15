@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('api_extensions', function (Blueprint $table) {
+        Schema::create('api_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('classname');
-            $table->foreignId('api_category_id');
+            $table->string('name');
+            $table->string('slug');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('api_extensions');
+        Schema::dropIfExists('api_categories');
     }
 };

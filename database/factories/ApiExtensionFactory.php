@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\ApiExtension;
+use App\Api\Server\ApiCategory;
+use App\Api\Server\ApiExtension;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -11,31 +12,27 @@ use Illuminate\Support\Str;
  */
 class ApiExtensionFactory extends Factory
 {
-    public static $stock;
+    protected $model = ApiExtension::class;
 
-    public static $item;
+    public $categories_count;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    public $stock;
+
     public function definition(): array
     {
-        if( is_null(self::$stock) )
-            self::$stock = ApiExtension::stock();
+        if( is_null($this->categories_count) )
+            $this->categories_count = ApiCategory::all()->count();
 
-        self::$item = is_null(self::$item) ? current(self::$stock) : next(self::$stock);
+        if( is_null($this->stock) )
+            $this->stock = ApiExtension::stock();
+
+        $extension = current($this->stock);
+
+        next($this->stock);
 
         return [
-            'name' => self::$item['name'],
-            'model' => Str::studly( self::$item['name'] ),
-            'slug' => Str::slug( self::$item['name'] ),
-            'description' => self::$item['description'],
-            'category' => self::$item['category'],
-            'price' => $this->faker->boolean() ? $this->faker->randomFloat(2, 1, 200) : 0,
-            'free_try' => $this->faker->boolean(),
-            'is_available' => $this->faker->boolean(),
+            'classname' => $extension,
+            'api_category_id' => mt_rand(1, $this->categories_count),
         ];
     }
 }

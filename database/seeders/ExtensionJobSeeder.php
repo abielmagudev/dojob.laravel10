@@ -18,8 +18,14 @@ class ExtensionJobSeeder extends Seeder
 
         foreach(Job::all() as $job)
         {
-            if( mt_rand(0,1) )
-                $job->extensions()->attach( $extensions->random( mt_rand(1,3) ) );
+            if( mt_rand(0, 1) )
+            {
+                $counter = $extensions->random( 
+                    mt_rand(1, $extensions->count())
+                );
+
+                $job->extensions()->attach($counter);
+            }    
         }
     }
 }

@@ -2,20 +2,19 @@
 
 namespace Database\Seeders;
 
-use App\Api\Server\ApiExtension;
-use App\Models\Extension;
+use App\Api\Server\ApiCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ExtensionSeeder extends Seeder
+class ApiCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
-    {
-        $counter = mt_rand(1, ApiExtension::all()->count());
+    {        
+        $counter = count(ApiCategory::stock());
         
-        Extension::factory( $counter )->create();
+        ApiCategory::factory( $counter )->create();
     }
 }

@@ -11,8 +11,28 @@
         <label for="selectJob" class="form-label">Job</label>
         <div class="form-control">{{ $task->job->name }}</div>
     </div>
+    @if( $task->job->hasExtensions() )       
+    <label class="form-label">Extensions</label>
+    <div id="extensionsContainer" class='bg-light py-3 px-4'>
+        <div id="extensions"></div>
+    </div>
+    @endif
     <br>
     <button class="btn btn-warning" type="submit">Update task</button>
     <a href="{{ route('tasks.index') }}" class="btn btn-primary">Back</a>
 </form>
+<div id="templates"></div>
+<script>
+
+const extensions = document.getElementById('extensions');
+const extension = fetch("<?= route('extensions.components', [$task->id, 'edit']) ?>")
+
+extension
+.then( res => res.json() )
+.then( json => {
+    let component = JSON.parse(json.components[0])
+    console.log(component)
+    extensions.innerHTML = component.template
+})
+</script>
 @endsection

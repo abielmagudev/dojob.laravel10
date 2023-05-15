@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('extensions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('api_extension_id')->unique();
             $table->boolean('is_available')->default(true);
+            $table->foreignId('api_extension_id')->unique();
+            $table->string('api_extension_classname')->unique();
             $table->timestamps();
             $table->softDeletes();
         });
