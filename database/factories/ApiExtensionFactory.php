@@ -28,7 +28,7 @@ class ApiExtensionFactory extends Factory
 
         return [
             'model' => $extension,
-            'tags' => implode(',', $tags),
+            'tags' => json_encode($tags),
         ];
     }
 }

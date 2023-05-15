@@ -10,14 +10,22 @@ class ApiExtension extends Model
 {
     use HasFactory;
 
-    public function scopeCategories($query)
+    private $modeling_cache = null;
+
+
+    // Attributes
+
+    public function getModelingAttribute()
     {
-        return $query->select('category')->groupBy('category')->orderBy('category')->pluck('category');
+        if( is_null($this->modeling_cache) )
+            $this->modeling_cache = new $this->model;
+
+        return $this->modeling_cache;
     }
 
-    public function scopeByCategory($query, $category)
+    public function getTagsArrayAttribute()
     {
-        return $query->where('category', $category);
+        return json_decode($this->tags);
     }
 
 
