@@ -14,25 +14,21 @@ class ApiExtensionFactory extends Factory
 {
     protected $model = ApiExtension::class;
 
-    public $categories_count;
-
     public $stock;
 
     public function definition(): array
     {
-        if( is_null($this->categories_count) )
-            $this->categories_count = ApiCategory::all()->count();
-
         if( is_null($this->stock) )
             $this->stock = ApiExtension::stock();
 
         $extension = current($this->stock);
-
         next($this->stock);
 
+        $tags = $this->faker->randomElements(['insulation', 'painting', 'maintenance', 'weatherization', 'carpenter'], 3);
+
         return [
-            'classname' => $extension,
-            'api_category_id' => mt_rand(1, $this->categories_count),
+            'model' => $extension,
+            'tags' => implode(',', $tags),
         ];
     }
 }

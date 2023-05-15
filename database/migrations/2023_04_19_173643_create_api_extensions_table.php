@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('api_extensions', function (Blueprint $table) {
             $table->id();
-            $table->string('classname');
-            $table->foreignId('api_category_id');
+            $table->string('model');
+            $table->string('tags');
             $table->timestamps();
         });
     }
