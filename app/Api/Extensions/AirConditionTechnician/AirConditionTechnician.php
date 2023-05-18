@@ -3,15 +3,17 @@
 namespace App\Api\Extensions\AirConditionTechnician;
 
 use App\Api\Extensions\HasReflectorInformant;
-use App\Api\Extensions\HasManualMigration;
+use App\Api\Extensions\HasMigrationRunner;
+use App\Api\Extensions\HasStaticHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AirConditionTechnician extends Model
 {
     use HasFactory;
-    use HasManualMigration;
+    use HasMigrationRunner;
     use HasReflectorInformant;
+    use HasStaticHelpers;
 
     protected $table = 'api_extension_air_condition_technician';
 

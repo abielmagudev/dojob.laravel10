@@ -30,7 +30,13 @@
                     @endforeach
                     </td>
                     <td class='text-end'>
-                        <button class="btn btn-outline-primary" type="submit" form="formInstallExtension" name="extension" value="{{ $api_extension->id }}">Install</button>
+                        @if( $extensions->contains('api_extension_id', '=', $api_extension->id) )
+                        <span class="btn btn-outline-secondary w-100 disabled">Connected</span>
+                        
+                        @else
+                        <button class="btn btn-outline-primary w-100" type="submit" form="formInstallExtension" name="extension" value="{{ $api_extension->id }}">Connect</button>
+
+                        @endif
                     </td>
 
                     <?php /*

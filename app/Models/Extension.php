@@ -9,6 +9,11 @@ class Extension extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'api_extension_id',
+        'api_extension_model',
+    ];
+    
     public function api()
     {
         return $this->belongsTo(ApiExtension::class, 'api_extension_id');

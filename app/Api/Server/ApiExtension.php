@@ -12,7 +12,6 @@ class ApiExtension extends Model
 
     private $modeling_cache = null;
 
-
     // Attributes
 
     public function getModelingAttribute()

@@ -3,17 +3,19 @@
 namespace App\Api\Extensions\AtticInsulation;
 
 use App\Api\Extensions\HasReflectorInformant;
-use App\Api\Extensions\HasManualMigration;
+use App\Api\Extensions\HasMigrationRunner;
+use App\Api\Extensions\HasStaticHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AtticInsulation extends Model
 {
     use HasFactory;
-    use HasManualMigration;
+    use HasMigrationRunner;
     use HasReflectorInformant;
+    use HasStaticHelpers;
 
-    protected $table = 'api_extension_air_condition';
+    protected $table = 'api_extension_attic_insulation';
 
     public $name = 'Attic insulation';
     

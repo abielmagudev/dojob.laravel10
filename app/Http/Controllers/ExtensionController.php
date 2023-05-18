@@ -22,7 +22,16 @@ class ExtensionController extends Controller
      */
     public function store(Request $request)
     {
-        $request->dd();
+        $api_extension = ApiExtension::find( $request->extension );
+
+        $api_extension->modeling::install();
+
+        Extension::create([
+            'api_extension_id' => $api_extension->id,
+            'api_extension_model' => $api_extension->model,
+        ]);
+
+        return redirect()->route('extensions.index')->with('success', "Extension {$api_extension->modeling->name} installed");
     }
 
     /**
