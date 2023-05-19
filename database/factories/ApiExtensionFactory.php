@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Api\Server\ApiCategory;
 use App\Api\Server\ApiExtension;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
