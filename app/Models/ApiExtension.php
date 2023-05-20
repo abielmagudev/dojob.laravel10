@@ -17,14 +17,14 @@ class ApiExtension extends Model
     public function getIncubatorAttribute()
     {
         if( is_null($this->incubator_cache) )
-            $this->incubator_cache = new $this->model;
+            $this->incubator_cache = new $this->model_classname;
 
         return $this->incubator_cache;
     }
 
     public function getTagsArrayAttribute()
     {
-        return json_decode($this->tags, false);
+        return str_getcsv($this->tags_csv_format);
     }
 
 
