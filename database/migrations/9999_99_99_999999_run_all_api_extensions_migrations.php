@@ -8,16 +8,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public $api_extensions_path;
-
     public $api_extensions_migrations;
 
     public function __construct()
     {
-        $this->api_extensions_path = database_path('api-extensions');
-
         $this->api_extensions_migrations = File::files(
-            $this->api_extensions_path
+            database_path('migrations/api-extensions')
         );
     }
 
@@ -29,7 +25,7 @@ return new class extends Migration
         foreach($this->api_extensions_migrations as $migration)
         {
             Artisan::call('migrate', [
-                '--path' => sprintf('%s/%s', $this->api_extensions_path, $migration->getFilename()),
+                '--path' => 'database/migrations/api-extensions/' . $migration->getFilename(),
                 '--force' => true,
             ]);
         }
@@ -43,7 +39,7 @@ return new class extends Migration
         foreach($this->api_extensions_migrations as $migration)
         {
             Artisan::call('migrate:rollback', [
-                '--path' => sprintf('%s/%s', $this->api_extensions_path, $migration->getFilename()),
+                '--path' => 'database/migrations/api-extensions/' . $migration->getFilename(),
                 '--force' => true,
             ]);
         }
