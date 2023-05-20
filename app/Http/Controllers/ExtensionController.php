@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Api\Server\ApiExtension;
+use App\Models\ApiExtension;
 use App\Models\Extension;
 use Illuminate\Http\Request;
 

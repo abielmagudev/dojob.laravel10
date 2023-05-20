@@ -22,8 +22,8 @@
                 @foreach($api_extensions as $api_extension)             
                 <tr>
 
-                    <td>{{ $api_extension->modeling->name }}</td>
-                    <td>{{ $api_extension->modeling->description }}</td>
+                    <td>{{ $api_extension->incubator->name }}</td>
+                    <td>{{ $api_extension->incubator->description }}</td>
                     <td>
                     @foreach($api_extension->tags_array as $tag)
                         <span class="badge rounded-pill text-bg-dark">{{ $tag }}</span>
