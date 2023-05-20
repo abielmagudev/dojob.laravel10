@@ -11,7 +11,7 @@ class Extension extends Model
 
     protected $fillable = [
         'api_extension_id',
-        'api_extension_model',
+        'api_extension_model_classname',
     ];
     
     public function api()
