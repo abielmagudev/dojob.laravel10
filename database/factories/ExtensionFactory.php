@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Api\Server\ApiExtension;
+use App\Models\ApiExtension;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,7 +27,7 @@ class ExtensionFactory extends Factory
                 
         return [
             'api_extension_id' => $api_extension_id,
-            'api_extension_modelclass_name' => $api_extension_model_classname,
+            'api_extension_model_classname' => $api_extension_model_classname,
         ];
     }
 }

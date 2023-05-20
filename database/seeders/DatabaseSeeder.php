@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,10 +23,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ApiExtensionSeeder::class,
-            // ExtensionSeeder::class,
             JobSeeder::class,
+            ExtensionSeeder::class,
+            ExtensionJobSeeder::class,
             TaskSeeder::class,
-            // ExtensionJobSeeder::class,
         ]);
 
     }

@@ -20,11 +20,11 @@ class ExtensionJobSeeder extends Seeder
         {
             if( mt_rand(0, 1) )
             {
-                $counter = $extensions->random( 
+                $extensions_random_count = $extensions->random( 
                     mt_rand(1, $extensions->count())
                 );
 
-                $job->extensions()->attach($counter);
+                $job->extensions()->attach($extensions_random_count);
             }    
         }
     }
