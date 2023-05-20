@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Api\Server\ApiExtension;
+use App\Models\ApiExtension;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,8 +13,8 @@ class ApiExtensionSeeder extends Seeder
      */
     public function run(): void
     {
-        $counter = count(ApiExtension::stock());
-        
-        ApiExtension::factory( $counter )->create();
+        ApiExtension::factory( 
+            count( ApiExtension::stock() )
+         )->create();
     }
 }
