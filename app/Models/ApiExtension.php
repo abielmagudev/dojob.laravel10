@@ -9,17 +9,17 @@ class ApiExtension extends Model
 {
     use HasFactory;
 
-    private $incubator_cache = null;
+    private $modeling_cache = null;
 
 
     // Attributes
 
-    public function getIncubatorAttribute()
+    public function getModelingAttribute()
     {
-        if( is_null($this->incubator_cache) )
-            $this->incubator_cache = new $this->model_classname;
+        if( is_null($this->modeling_cache) )
+            $this->modeling_cache = new $this->model_classname;
 
-        return $this->incubator_cache;
+        return $this->modeling_cache;
     }
 
     public function getTagsArrayAttribute()
