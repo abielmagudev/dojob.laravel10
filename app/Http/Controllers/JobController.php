@@ -24,7 +24,7 @@ class JobController extends Controller
 
     public function show(Job $job)
     {
-        return view('jobs.show')->with('job', $job);
+        return view('jobs.show')->with('job', $job->load('extensions.api'));
     }
 
     public function edit(Job $job)

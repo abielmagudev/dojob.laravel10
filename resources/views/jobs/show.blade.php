@@ -9,7 +9,7 @@
 <p>Extensions</p>
 <ul>
     @foreach($job->extensions as $extension)
-    <li>{{ $extension->api->name }}</li>
+    <li>{{ $extension->api->modeling->name }}</li>
     @endforeach
 </ul>
 @endsection
