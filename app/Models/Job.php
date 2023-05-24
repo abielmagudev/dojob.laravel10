@@ -18,9 +18,9 @@ class Job extends Model
 
     // Relationships
 
-    public function tasks()
+    public function orders()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Order::class);
     }
 
     public function extensions()

@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
-use App\Models\Task;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class OrderController extends Controller
 {
     public function index()
     {
-        return view('tasks.index', [
-            'tasks' => Task::with('job')->get(),
+        return view('orders.index', [
+            'orders' => Order::with('job')->get(),
         ]);
     }
 
     public function create()
     {
-        return view('tasks.create', [
+        return view('orders.create', [
             'jobs' => Job::orderBy('name')->get(),
         ]);
     }
@@ -30,20 +30,20 @@ class TaskController extends Controller
         //
     }
 
-    public function show(Task $task)
+    public function show(Order $order)
     {
-        return view('tasks.show')->with('task', $task);
+        return view('orders.show')->with('order', $order);
     }
 
-    public function edit(Task $task)
+    public function edit(Order $order)
     {
-        return view('tasks.edit')->with('task', $task);
+        return view('orders.edit')->with('order', $order);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -51,7 +51,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Task $task)
+    public function destroy(Order $order)
     {
         //
     }

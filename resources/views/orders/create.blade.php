@@ -1,6 +1,6 @@
 @extends('application')
 @section('content')
-<form action="{{ route('tasks.store') }}" method="post">
+<form action="{{ route('orders.store') }}" method="post">
     @csrf
     <div class="mb-3">
         <label for="inputScheduleDate" class="form-label">Schedule</label>
@@ -17,7 +17,7 @@
         </select>
     </div>
     <br>
-    <button class="btn btn-success" type="submit">Save task</button>
-    <a href="{{ route('tasks.index') }}" class="btn btn-primary">Cancel</a>
+    <button class="btn btn-success" type="submit">Save order</button>
+    <a href="{{ route('orders.index') }}" class="btn btn-primary">Cancel</a>
 </form>
 @endsection

@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
-use App\Models\Task;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ApiExtensionComponentController extends Controller
 {
-    public function __invoke($task_id, $type)
+    public function __invoke($work_order_id, $type)
     {
         $components = [];
 
-        $task = Task::find($task_id);
-        $job  = Job::with('extensions.api')->where('id', $task->job_id)->first();
+        $order = Order::find($work_order_id);
+        $job  = Job::with('extensions.api')->where('id', $order->job_id)->first();
 
         foreach($job->extensions as $extension)
         {

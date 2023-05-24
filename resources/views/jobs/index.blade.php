@@ -20,7 +20,7 @@
                 <td scope="row">{{ $job->name }}</td>
                 <td>{{ $job->description }}</td>
                 <td>{{ $job->extensions_count }}</td>
-                <td>{{ $job->tasks_count }}</td>
+                <td>{{ $job->orders_count }}</td>
                 <td class="text-end">
                     <a href="{{ route('jobs.show', $job) }}" class="btn btn-outline-primary btn-sm">
                         <span>Show</span>

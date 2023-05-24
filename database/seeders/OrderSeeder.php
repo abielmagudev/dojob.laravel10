@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Task;
+use App\Models\Order;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TaskSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Task::factory(100)->create();
+        Order::factory(100)->create();
     }
 }
