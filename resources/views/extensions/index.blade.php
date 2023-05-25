@@ -22,8 +22,8 @@
                 @foreach($api_extensions as $api_extension)             
                 <tr>
 
-                    <td>{{ $api_extension->modeling->name }}</td>
-                    <td>{{ $api_extension->modeling->description }}</td>
+                    <td>{{ $api_extension->model::getName() }}</td>
+                    <td>{{ $api_extension->model::getDescription() }}</td>
                     <td>
                     @foreach($api_extension->tags_array as $tag)
                         <span class="badge rounded-pill text-bg-dark">{{ $tag }}</span>
@@ -31,10 +31,10 @@
                     </td>
                     <td class='text-end'>
                         @if( $extensions->contains('api_extension_id', '=', $api_extension->id) )
-                        <span class="btn btn-outline-secondary w-100 disabled">Connected</span>
+                        <span class="btn btn-secondary w-100 disabled">Installed</span>
                         
                         @else
-                        <button class="btn btn-outline-primary w-100" type="submit" form="formInstallExtension" name="extension" value="{{ $api_extension->id }}">Connect</button>
+                        <button class="btn btn-outline-success w-100" type="submit" form="formInstallExtension" name="extension" value="{{ $api_extension->id }}">Install</button>
 
                         @endif
                     </td>
