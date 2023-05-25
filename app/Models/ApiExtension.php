@@ -17,7 +17,7 @@ class ApiExtension extends Model
     public function getModelingAttribute()
     {
         if( is_null($this->modeling_cache) )
-            $this->modeling_cache = new $this->model_classname;
+            $this->modeling_cache = new $this->model;
 
         return $this->modeling_cache;
     }

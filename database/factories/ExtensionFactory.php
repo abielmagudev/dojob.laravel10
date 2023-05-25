@@ -23,11 +23,11 @@ class ExtensionFactory extends Factory
             $this->api_extensions_stock = ApiExtension::all();
 
         $api_extension_id = $this->faker->unique()->numberBetween(1, $this->api_extensions_stock->count());
-        $api_extension_model_classname = $this->api_extensions_stock->find($api_extension_id)->model_classname;
+        $api_extension_model = $this->api_extensions_stock->find($api_extension_id)->model;
                 
         return [
             'api_extension_id' => $api_extension_id,
-            'api_extension_model_classname' => $api_extension_model_classname,
+            'api_extension_model' => $api_extension_model,
         ];
     }
 }

@@ -22,7 +22,7 @@ class ApiExtensionFactory extends Factory
         next($this->stock);
 
         return [
-            'model_classname' => $extension,
+            'model' => $extension,
             'tags_csv_format' => implode(',', 
                 $this->faker->randomElements([
                     'insulation',
