@@ -17,19 +17,21 @@ class ApiExtensionFactory extends Factory
         if( is_null($this->stock) )
             $this->stock = ApiExtension::stock();
 
-        $extension = current($this->stock);
+        $api_extension_model = current($this->stock);
         
         next($this->stock);
 
         return [
-            'model' => $extension,
+            'model' => $api_extension_model,
             'tags_csv_format' => implode(',', 
                 $this->faker->randomElements([
                     'insulation',
                     'painting', 
                     'maintenance', 
                     'weatherization', 
-                    'carpenter'
+                    'carpenter',
+                    'inspection',
+                    'testing',
                 ], 3)
             ),
         ];
