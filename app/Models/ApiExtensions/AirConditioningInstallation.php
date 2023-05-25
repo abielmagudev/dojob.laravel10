@@ -2,16 +2,16 @@
 
 namespace App\Models\ApiExtensions;
 
-use App\Models\ApiExtensions\Kernel\HasCustomHelpers;
 use App\Models\ApiExtensions\Kernel\HasMigrationUpdates;
+use App\Models\ApiExtensions\Kernel\HasReflector;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AirConditioningInstallation extends Model
 {
     use HasFactory;
-    use HasCustomHelpers;
     use HasMigrationUpdates;
+    use HasReflector;
 
     protected $table = 'api_extension_air_conditioning_installation';
 
