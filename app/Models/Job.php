@@ -9,6 +9,13 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'is_available',
+    ];
+
+
     // Validators
 
     public function hasExtensions()

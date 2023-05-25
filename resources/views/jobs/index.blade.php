@@ -10,7 +10,7 @@
                 <th scope="col">Job</th>
                 <th scope="col">Description</th>
                 <th scope="col">Extensions</th>
-                <th scope="col">Tasks</th>
+                <th scope="col">Orders</th>
                 <th></th>
             </tr>
         </thead>

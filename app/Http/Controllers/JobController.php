@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Extension;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -29,12 +30,19 @@ class JobController extends Controller
 
     public function edit(Job $job)
     {
-        return view('jobs.edit')->with('job', $job);
+        return view('jobs.edit', [
+            'job' => $job,
+            'extensions' => Extension::all(),
+        ]);
     }
 
     public function update(Request $request, Job $job)
     {
-        //
+        $job->fill($request->all())->save();
+
+        $job->extensions()->sync($request->get('extensions', []));
+
+        return redirect()->route('jobs.edit', $job)->with('success', 'Job updated');
     }
 
     public function destroy(Job $job)
