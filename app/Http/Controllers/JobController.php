@@ -10,7 +10,7 @@ class JobController extends Controller
 {
     public function index()
     {
-        return view('jobs.index')->with('jobs', Job::withCount(['extensions','orders'])->get());
+        return view('jobs.index')->with('jobs', Job::withCount(['extensions','orders'])->orderBy('name')->get());
     }
 
     public function create()
