@@ -4,7 +4,7 @@ namespace App\Models\ApiExtensions\Kernel;
 
 use App\Models\Order;
 
-trait HasWorkOrderRelation
+trait HasOrderRelation
 {
     public function workOrder()
     {
