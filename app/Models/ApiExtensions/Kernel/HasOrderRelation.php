@@ -6,7 +6,7 @@ use App\Models\Order;
 
 trait HasOrderRelation
 {
-    public function workOrder()
+    public function order()
     {
         return $this->belongnsTo(Order::class);
     }
