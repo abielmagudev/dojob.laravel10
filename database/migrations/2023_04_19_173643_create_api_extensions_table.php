@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('api_extensions', function (Blueprint $table) {
             $table->id();
-            $table->string('model');
+            $table->string('model_class');
+            $table->string('controller_class');
             $table->string('tags_csv_format');
+            $table->decimal('price', 8, 2, true)->nullable();
             $table->timestamps();
         });
     }

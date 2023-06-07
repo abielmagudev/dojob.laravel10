@@ -22,8 +22,8 @@
                 @foreach($api_extensions as $api_extension)             
                 <tr>
 
-                    <td>{{ $api_extension->model::getName() }}</td>
-                    <td>{{ $api_extension->model::getDescription() }}</td>
+                    <td>{{ $api_extension->model_class::getName() }}</td>
+                    <td>{{ $api_extension->model_class::getDescription() }}</td>
                     <td>
                     @foreach($api_extension->tags_array as $tag)
                         <span class="badge rounded-pill text-bg-dark">{{ $tag }}</span>

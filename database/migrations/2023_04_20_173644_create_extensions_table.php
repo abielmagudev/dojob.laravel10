@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->boolean('is_available')->default(true);
             $table->foreignId('api_extension_id')->unique();
-            $table->string('api_extension_model')->unique();
+            $table->string('api_extension_model_class')->unique();
+            $table->string('api_extension_controller_class')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

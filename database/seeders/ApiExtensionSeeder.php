@@ -14,7 +14,7 @@ class ApiExtensionSeeder extends Seeder
     public function run(): void
     {
         ApiExtension::factory( 
-            count( ApiExtension::stock() )
+            count( ApiExtension::stockByClasses() )
          )->create();
     }
 }

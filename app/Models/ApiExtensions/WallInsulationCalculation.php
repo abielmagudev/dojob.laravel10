@@ -3,7 +3,7 @@
 namespace App\Models\ApiExtensions;
 
 use App\Models\ApiExtensions\Kernel\HasMigrationUpdates;
-use App\Models\ApiExtensions\Kernel\HasReflector;
+use App\Models\ApiExtensions\Kernel\HasPropertyGetters;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class WallInsulationCalculation extends Model
 {
     use HasFactory;
     use HasMigrationUpdates;
-    use HasReflector;
+    use HasPropertyGetters;
 
     protected $table = 'api_extension_wall_insulation_calculation';
 

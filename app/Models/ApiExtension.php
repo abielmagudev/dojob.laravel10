@@ -4,23 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use ReflectionClass;
 
 class ApiExtension extends Model
 {
     use HasFactory;
-
-    private $modeling_cache = null;
-
-
-    // Attributes
-
-    public function getModelingAttribute()
-    {
-        if( is_null($this->modeling_cache) )
-            $this->modeling_cache = new $this->model;
-
-        return $this->modeling_cache;
-    }
 
     public function getTagsArrayAttribute()
     {
@@ -28,18 +16,33 @@ class ApiExtension extends Model
     }
 
 
-    // To factory and seeder
-    
-    public static function stock()
+    // ONLY FOR FACTORY AND SEEDING
+
+    public static function stockByClasses()
     {
         return [
-            \App\Models\ApiExtensions\AirConditioningInstallation::class,
-            \App\Models\ApiExtensions\AtticInsulationCalculation::class,
-            \App\Models\ApiExtensions\BattInsulationCalculation::class,
-            \App\Models\ApiExtensions\MinisplitInstallation::class,
-            \App\Models\ApiExtensions\WallInsulationCalculation::class,
-            
-            // more...
+            [
+                'model_class' => \App\Models\ApiExtensions\AirConditioningInstallation::class,
+                'controller_class' => \App\Http\Controllers\ApiExtensions\AirConditioningInstallationController::class,
+            ],
+            [
+                'model_class' => \App\Models\ApiExtensions\AtticInsulationCalculation::class,
+                'controller_class' => \App\Http\Controllers\ApiExtensions\AtticInsulationCalculationController::class,
+            ],
+            [
+                'model_class' => \App\Models\ApiExtensions\BattInsulationCalculation::class,
+                'controller_class' => \App\Http\Controllers\ApiExtensions\BattInsulationCalculationController::class,
+            ],
+            [
+                'model_class' => \App\Models\ApiExtensions\MinisplitInstallation::class,
+                'controller_class' => \App\Http\Controllers\ApiExtensions\MinisplitInstallationController::class,
+            ],
+            [
+                'model_class' => \App\Models\ApiExtensions\WallInsulationCalculation::class,
+                'controller_class' => \App\Http\Controllers\ApiExtensions\WallInsulationCalculationController::class,
+            ],
+
+            // ...
         ];
     }
 }

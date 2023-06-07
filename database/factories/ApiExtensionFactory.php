@@ -15,25 +15,29 @@ class ApiExtensionFactory extends Factory
     public function definition(): array
     {
         if( is_null($this->stock) )
-            $this->stock = ApiExtension::stock();
+            $this->stock = ApiExtension::stockByClasses();
 
-        $api_extension_model = current($this->stock);
+        $api_extension = current($this->stock);
         
         next($this->stock);
 
         return [
-            'model' => $api_extension_model,
+            'model_class' => $api_extension['model_class'],
+            'controller_class' => $api_extension['controller_class'],
             'tags_csv_format' => implode(',', 
                 $this->faker->randomElements([
-                    'insulation',
-                    'painting', 
-                    'maintenance', 
-                    'weatherization', 
                     'carpenter',
+                    'cooling',
+                    'heater',
                     'inspection',
+                    'insulation',
+                    'maintenance', 
+                    'painting', 
                     'testing',
+                    'weatherization', 
                 ], 3)
             ),
+            'price' => $this->faker->optional()->randomFloat(2, 1, 500),
         ];
     }
 }
