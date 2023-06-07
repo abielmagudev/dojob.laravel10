@@ -8,21 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Extension extends Model
 {
     use HasFactory;
-
-    const MODELS_NAMESPACE = '\App\Models\ApiExtensions';
-
-    const CONTROLLERS_NAMESPACE = '\App\Http\Controllers\ApiExtensions';
     
     protected $fillable = [
+        'model_class',
+        'controller_class',
         'is_available',
         'api_extension_id',
-        'api_extension_classname',
     ];
-
-    public function getClassnameAttribute()
-    {
-        return $this->api_extension_classname;
-    }
     
     public function api()
     {

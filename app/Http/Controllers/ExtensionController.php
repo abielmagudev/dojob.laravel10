@@ -24,12 +24,18 @@ class ExtensionController extends Controller
     {
         $api_extension = ApiExtension::find( $request->extension );
 
-        Extension::create([
-            'api_extension_id' => $api_extension->id,
-            'api_extension_model_classname' => $api_extension->model_classname,
-        ]);
+        if(! 
+            $extension = Extension::create([
+                'model_class' => $api_extension->model_class,
+                'controller_class' => $api_extension->controller_class,
+                'api_extension_id' => $api_extension->id,
+            ])
+         )
+            return back()->with('danger', 'Error installing the extension, please try again');
 
-        return redirect()->route('extensions.index')->with('success', "Extension {$api_extension->incubator->name} installed");
+        return redirect()->route('extensions.index')->with('success',
+            sprintf('Extension %s installed', $extension->model_class::getName()) 
+        );
     }
 
     /**

@@ -20,15 +20,17 @@ class ExtensionFactory extends Factory
     public function definition(): array
     {
         if( is_null($this->api_extensions_stock) )
+        {
             $this->api_extensions_stock = ApiExtension::all();
+        }
 
-        $api_extension_id = $this->faker->unique()->numberBetween(1, $this->api_extensions_stock->count());
-        $api_extension = $this->api_extensions_stock->find($api_extension_id);
+        $random_id = $this->faker->unique()->numberBetween(1, $this->api_extensions_stock->count());
+        $api_extension = $this->api_extensions_stock->find($random_id);
                 
         return [
-            'api_extension_id' => $api_extension_id,
-            'api_extension_model_class' => $api_extension->model_class,
-            'api_extension_controller_class' => $api_extension->controller_class,
+            'model_class' => $api_extension->model_class,
+            'controller_class' => $api_extension->controller_class,
+            'api_extension_id' => $api_extension->id,
         ];
     }
 }
