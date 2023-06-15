@@ -21,9 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::resource('extensions', ExtensionController::class);
 Route::resource('jobs', JobController::class);
 Route::resource('orders', OrderController::class);
-// Route::get('extensions_components/{order_id}/{type}', ApiExtensionComponentController::class)->name('extensions.components');
 
-Route::get('extensiones/loader/{job}/{method?}', ExtensionLoaderController::class)->name('extensions.loader');
+Route::post('extensions_loader', ExtensionLoaderController::class)->name('extensions.loader');
 
 Route::get('/', function () {
     return view('welcome');
