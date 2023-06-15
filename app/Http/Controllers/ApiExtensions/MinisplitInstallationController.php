@@ -10,7 +10,7 @@ class MinisplitInstallationController extends Controller
     public function create(Request $request)
     {
         return [
-            'view' => view('api-extensions/minisplit-installation/create')->render(),
+            'template' => view('api-extensions/minisplit-installation/create')->render(),
             'script' => null,
         ];
     }

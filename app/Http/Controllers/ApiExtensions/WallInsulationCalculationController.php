@@ -10,7 +10,7 @@ class WallInsulationCalculationController extends Controller
     public function create(Request $request)
     {
         return [
-            'view' => view('api-extensions/wall-insulation-calculation/create')->render(),
+            'template' => view('api-extensions/wall-insulation-calculation/create')->render(),
             'script' => null,
         ];
     }

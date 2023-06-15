@@ -10,8 +10,8 @@ class AtticInsulationCalculationController extends Controller
     public function create(Request $request)
     {
         return [
-            'view' => view('api-extensions/attic-insulation-calculation/create')->render(),
-            'script' => null,
+            'template' => view('api-extensions/attic-insulation-calculation/create')->render(),
+            'script' => '4tt1c1nsul4t10n.js',
         ];
     }
 }

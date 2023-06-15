@@ -10,7 +10,7 @@ class BattInsulationCalculationController extends Controller
     public function create(Request $request)
     {
         return [
-            'view' => view('api-extensions/batt-insulation-calculation/create')->render(),
+            'template' => view('api-extensions/batt-insulation-calculation/create')->render(),
             'script' => null,
         ];
     }
