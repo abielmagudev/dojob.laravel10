@@ -3,7 +3,7 @@
     <div class="col-sm">
         <div class="mb-3">
             <label for="selectMethod" class="form-label">Method</label>
-            <select class="form-select" id='selectMethod'>
+            <select class="form-select" id='selectMethod' name="aicx_method">
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -14,7 +14,7 @@
     <div class="col-sm">
         <div class="mb-3">
             <label for="selectRValue" class="form-label">R-Value</label>
-            <select class="form-select" id="selectRValue">
+            <select class="form-select" id="selectRValue" name="aicx_rvalue">
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
                 <option value="2">Two</option>
@@ -25,7 +25,7 @@
     <div class="col-sm">
         <div class="mb-3">
             <label for="inputSquareFeets" class="form-label">Square feets</label>
-            <input type="number" class="form-control" min='0' step="0.01" id="inputSquareFeets">
+            <input type="number" class="form-control" min='0' step="0.01" id="inputSquareFeets" name="aicx_square_feets">
         </div>
     </div>
     <div class="col-sm">
