@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->dd();
     }
 
     public function show(Order $order)
