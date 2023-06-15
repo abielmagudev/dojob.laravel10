@@ -33,6 +33,11 @@ trait HasPropertyGetters
         return self::getProperty('table');
     }
 
+    public static function getPrefixInputName($name)
+    {
+        return sprintf('%s_%s', self::getProperty('prefix'), $name);
+    }
+
     public static function getName()
     {
         return self::getProperty('name');

@@ -15,6 +15,8 @@ class AirConditioningInstallation extends Model
 
     protected $table = 'api_extension_air_conditioning_installation';
 
+    public $prefix = 'aci';
+
     public $name = 'Air Conditioning Installation';
     
     public $description = 'Air conditioning installation description.';

@@ -15,6 +15,8 @@ class BattInsulationCalculation extends Model
 
     protected $table = 'api_extension_batt_insulation_calculation';
 
+    public $prefix = 'bic';
+
     public $name = 'Batt Insulation Calculation';
     
     public $description = 'Batt insulation calculation description.';

@@ -15,6 +15,8 @@ class MinisplitInstallation extends Model
 
     protected $table = 'api_extension_minisplit_installation';
 
+    public $prefix = 'mi';
+
     public $name = 'Minisplit Installation';
     
     public $description = 'Minisplit installation description.';

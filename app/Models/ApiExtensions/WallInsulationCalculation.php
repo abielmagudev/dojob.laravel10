@@ -15,6 +15,8 @@ class WallInsulationCalculation extends Model
 
     protected $table = 'api_extension_wall_insulation_calculation';
 
+    public $prefix = 'wic';
+
     public $name = 'Wall Insulation Calculation';
     
     public $description = 'Wall insulation calculation description.';

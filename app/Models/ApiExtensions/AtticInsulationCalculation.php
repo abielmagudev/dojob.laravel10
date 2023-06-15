@@ -15,6 +15,8 @@ class AtticInsulationCalculation extends Model
 
     protected $table = 'api_extension_attic_insulation_calculation';
 
+    public $prefix = 'aic';
+
     public $name = 'Attic Insulation Calculation';
     
     public $description = 'Attic Insulation Calculation description.';
