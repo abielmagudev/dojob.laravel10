@@ -3,6 +3,7 @@
 namespace App\Models\ApiExtensions\Kernel;
 
 use Exception;
+use Illuminate\Support\Str;
 
 trait HasPropertyGetters
 {    
@@ -33,9 +34,14 @@ trait HasPropertyGetters
         return self::getProperty('table');
     }
 
+    public static function getPrefixInputId(string $name)
+    {
+        return sprintf('%s%s', self::getProperty('prefix'), Str::studly($name));
+    }
+
     public static function getPrefixInputName($name)
     {
-        return sprintf('%s_%s', self::getProperty('prefix'), $name);
+        return sprintf('%s_%s', self::getProperty('prefix'), Str::snake($name));
     }
 
     public static function getName()
