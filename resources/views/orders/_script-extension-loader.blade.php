@@ -2,27 +2,60 @@
 const selectJob = {
     element: document.getElementById('selectJob'),
     listen: function () {
-        this.element.addEventListener('change', function (evt) {
-            loader.get(this.value)
+        this.element.addEventListener('change', function () {
+            extensionsContainer.reset()
+
+            let option = this.options[this.selectedIndex]
+
+            if( option.dataset.hasExtensions > 0 )
+                extensionsContainer.add(this.value)
         })
     }
 }
 
-const loader = {
-    route: "<?= route('extensions.loader') ?>",
+const extensionsContainer = {
+    element: document.getElementById('extensionsContainer'),
     spinner: {
-        element: document.getElementById("loadingSpinner"),
+        element: document.getElementById('extensionsLoadingSpinner'),
         show: function () {
             this.element.classList.replace('d-none', 'd-block')
         },
         hide: function () {
-            this.element.classList.replace('d-block', 'd-none')
+            this.element.classList.replace('d-block','d-none')
         }
     },
-    get: function (job_id) {
+    add: async function (job_id) {
         this.spinner.show()
 
-        fetch(this.route, {
+        let extensions = await this.request(job_id);
+        if( extensions.length == 0 )
+            return;
+        
+        let domain_xjs = "<?= url('assets/xjs') ?>/";
+
+        let templates_cache = [];
+        extensions.forEach(function (extension) {
+            templates_cache.push(extension.template)
+            
+            if( extension.script )
+            {
+                if( script_exists = document.querySelector(`script[src="${domain_xjs + extension.script}"]`) )
+                    script_exists.remove()
+
+                let script = document.createElement('script')
+                script.src = domain_xjs + extension.script
+                script.async = true
+                script.defer = true
+                document.body.appendChild(script)
+            }
+        })
+
+        this.element.innerHTML = templates_cache.reverse().join('<hr class="mt-3 mb-4">')
+        this.spinner.hide()
+        this.show()
+    },
+    request: async function (job_id) {
+        let response = await fetch("<?= route('extensions.loader') ?>", {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,53 +66,23 @@ const loader = {
                 method: 'create'
             })
         })
-        .then( response => response.json() )
-        .then( json => extensionsContainer.draw(json.templates) )
 
-       this.spinner.hide() 
-    }
-}
+        let json = await response.json()
 
-const extensionsContainer = {
-    element: document.getElementById('extensionsContainer'),
-    draw: function (templates) {
-
-        if( templates.length )
-        {
-            this.show()
-        }
-        else
-        {
-            this.hide()
-        }
-
-        this.clean
-        
-        let domain = "<?= url('assets/js') ?>"
-        let templates_cache = [];
-        templates.forEach(function (item) {
-            templates_cache.push(item.template)
-            
-            let source = domain + '/' + item.script
-            if( item.script &&! document.querySelector(`script[src="${source}"]`) )
-            {
-                let script = document.createElement('script')
-                script.src = source
-                script.async = true
-                document.body.appendChild(script)
-            }
-        })
-
-        this.element.innerHTML = templates_cache.join('<hr class="mt-3 mb-4">')
-    },
-    clean: function () {
-        this.element.empty;
+        return json.templates;
     },
     show: function () {
         this.element.classList.replace('d-none', 'd-block')
     },
     hide: function () {
         this.element.classList.replace('d-block', 'd-none')
+    },
+    clean: function () {
+        this.element.empty;
+    },
+    reset: function () {
+        this.clean()
+        this.hide()
     }
 }
 
