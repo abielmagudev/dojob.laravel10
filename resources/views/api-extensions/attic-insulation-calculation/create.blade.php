@@ -2,36 +2,48 @@
 <div class="row">
     <div class="col-sm">
         <div class="mb-3">
-            <label for="selectMethod" class="form-label">Method</label>
-            <select class="form-select" id='selectMethod' name="aicx_method">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <?php $prefix_id = $atticInsulationCalculation::getPrefixInputId('selectMethod') ?>
+
+            <label for="{{ $prefix_id }}" class="form-label">Method</label>
+            <select class="form-select" id='{{ $prefix_id }}' name="{{ $atticInsulationCalculation::getPrefixInputName('method') }}">
+                <option disabled selected label="Choose method..."></option>
+                @foreach($atticInsulationCalculation::getAllMethods() as $method)                   
+                <option value="{{ $method }}">{{ ucfirst($method) }}</option>
+                @endforeach
             </select>
         </div>
     </div>
     <div class="col-sm">
         <div class="mb-3">
-            <label for="selectRValue" class="form-label">R-Value</label>
-            <select class="form-select" id="selectRValue" name="aicx_rvalue">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <?php $prefix_id = $atticInsulationCalculation::getPrefixInputId('selectRValue') ?>
+
+            <label for="{{ $prefix_id }}" class="form-label">R-Value</label>
+            <select class="form-select" id="{{ $prefix_id }}" name="{{ $atticInsulationCalculation::getPrefixInputName('rvalue') }}">
+                <option disabled selected label="Choose R-Value..."></option>
+                @foreach($atticInsulationCalculation::getAllMethodsWithRValues() as $method => $rvalues)                   
+                <optgroup label="{{ ucfirst($method) }}" class="d-none">
+                    @foreach($rvalues as $rvalue_name => $rvalue_amount)
+                    <option data-amount="{{ $rvalue_amount }}" value="{{ $rvalue_name }}">{{ $rvalue_name }}</option>
+                    @endforeach
+                </optgroup>
+                @endforeach
             </select>
         </div>
     </div>
     <div class="col-sm">
         <div class="mb-3">
-            <label for="inputSquareFeets" class="form-label">Square feets</label>
-            <input type="number" class="form-control" min='0' step="0.01" id="inputSquareFeets" name="aicx_square_feets">
+            <?php $prefix_id = $atticInsulationCalculation::getPrefixInputId('inputSquareFeets') ?>
+
+            <label for="{{ $prefix_id }}" class="form-label">Square feets</label>
+            <input type="number" class="form-control" min='0' step="0.01" id="{{ $prefix_id }}" name="{{ $atticInsulationCalculation::getPrefixInputName('square_feets') }}">
         </div>
     </div>
     <div class="col-sm">
         <div class="mb-3">
-            <label for="divTotalBags" class="form-label">Total bags</label>
-            <div class="form-control fw-bold text-center" id='divTotalBags'>0</div>
+            <?php $prefix_id = $atticInsulationCalculation::getPrefixInputId('divTotalBags') ?>
+
+            <label for="{{ $prefix_id }}" class="form-label">Total bags</label>
+            <div class="form-control fw-bold text-center" id='{{ $prefix_id }}'>0</div>
         </div>
     </div>
 </div>
